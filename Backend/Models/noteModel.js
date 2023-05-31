@@ -8,6 +8,6 @@ const noteSchema=new mongoose.Schema({
     dateposted:{type:String,maxLength:50},
 })
 
-const BlogModel=mongoose.model('blog',blogSchema)
+const NoteModel=mongoose.model('blog',noteSchema)
 
-module.exports=BlogModel
+module.exports=NoteModel
