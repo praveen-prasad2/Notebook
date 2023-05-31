@@ -5,7 +5,7 @@ const {signUp, signIn}=require("../Controllers/userController")
 const {createNote, allNotes, getSingleNote, deleteNote}=require("../Controllers/noteController")
 
 router.post("/signup",signUp)  // Route for signup
-router.get("/signin",signIn)  // Route for login
+router.post("/signin",signIn)  // Route for login
 
 router.post("/createnote",createNote) // Route for new note
 router.get("/allnotes",allNotes)  // Route for all notes
