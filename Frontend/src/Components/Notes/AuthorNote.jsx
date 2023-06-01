@@ -8,13 +8,17 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 
+
 import "./authornote.css"
 import { Link } from 'react-router-dom'
 
 function AuthorNote() {
 
+
     const [allNote, setAllNote] = useState()
     const { loggedinUser } = useContext(UserContext)
+
+    
   
 
     async function fetchAllNotes() {
@@ -22,7 +26,8 @@ function AuthorNote() {
         console.log(response);
         setAllNote(response.data.notes)
     }
-    useEffect(() => { fetchAllNotes() }, [])
+    useEffect(() => { fetchAllNotes() 
+}, [])
   return (
     <>
     <Navbar/>
@@ -41,6 +46,7 @@ function AuthorNote() {
             })}
         </div>
     </div>
+    
 
 <Link to="/addnote">
     <button className="add-new-note">Add Note <AddIcon/></button>
