@@ -19,6 +19,7 @@ function AuthorNote() {
     const { loggedinUser } = useContext(UserContext)
 
     
+    // Fetching Notes from API 
   
 
     async function fetchAllNotes() {

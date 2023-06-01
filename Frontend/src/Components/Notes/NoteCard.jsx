@@ -12,10 +12,14 @@ function NoteCard({notemap}) {
 
     const navigate=useNavigate()
 
+    // Delete Function 
+
     async function del() {
         await axios.delete(deleteNote + notemap._id)
         window.location.replace("http://localhost:5173/notes")
     }
+
+// Edit Function 
 
     async function noteEdit(){
         navigate("/editnote",{state:notemap})

@@ -28,7 +28,7 @@ function Signup() {
   
       }
       let response=await axios.post(signUp,newuser)
-    //   navigate('/login')
+      navigate('/login')
     alert('Signup Success')
     }else{
       alert("Password Missmatch")

@@ -21,6 +21,9 @@ function Navbar() {
           <Link to="/">Home</Link>
           <Link to="#">About</Link>
           <Link to="#">Resources</Link>
+
+{/* user must login to view notes */}
+
           {loggedinUser ? (
             <Link to="/notes">Notes</Link>) : (
             <Link to="/login">Notes</Link>)}{" "}
