@@ -2,19 +2,22 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../Context/UserContext";
 import { signIn } from "../../Api/Api";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./signin.css"
+import Navbar from "../Navbr/Navbar";
 
 function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate=useNavigate()
 
   const { SetloggedinUser } = useContext(UserContext);
 
   // Function for Signin
 
   async function userLogin() {
-    // console.log(user);
+    
     let response = await axios.post(signIn, {
       email,
       password,
@@ -24,6 +27,7 @@ function Signin() {
     if (response.data.success == true) {
       SetloggedinUser(response.data.user);
       window.localStorage.setItem("loggedinuser", JSON.stringify(response.data.user));
+      navigate("/notes")
       alert("Login success");
     } else {
       alert("Login Error");
@@ -32,6 +36,7 @@ function Signin() {
 
   return (
     <>
+    <Navbar/>
     <div className="wrapper">
       <h1>Signin</h1>
       <div className="login-inputs">
@@ -57,7 +62,7 @@ function Signin() {
         <br />
       </div>
       <div className="login-button">
-        <button className="login" onClick={userLogin}>
+        <button className="login-btn" onClick={userLogin}>
           Login
         </button>
         <p>Not a member?<Link to="/signup">Signup Now</Link></p>

@@ -5,6 +5,9 @@ import { UserContext } from '../Context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { createNote } from '../../Api/Api';
 import axios from 'axios';
+import Navbar from "../Navbr/Navbar"
+
+import "./addnote.css"
 
 function AddNote() {
 
@@ -25,7 +28,7 @@ function AddNote() {
         let res = await axios.post(createNote, note)
 
         if (res.data.success == true) {
-            // navigate('/viewauthorblog')
+            navigate('/notes')
             alert("Note added successfully")
         } else {
             alert("invalid")
@@ -34,7 +37,9 @@ function AddNote() {
 
   return (
   <>
+  <Navbar />
   <div className="outer-container">
+    <h1>ADD NEW NOTE</h1>
     <div className="inputs-addnote">
     <TextField id="outlined-basic" label="Title" variant="outlined" inputRef={titleref}/><br /> <br />
     <TextField
@@ -46,7 +51,7 @@ function AddNote() {
         /> <br /> <br />
     </div>
     <div className="buttons-addnote">
-    <Button variant="contained" onClick={createNewNote}>Save</Button>
+    <Button className='add-note' variant="contained" onClick={createNewNote}>Save</Button>
     </div>
   </div>
   </>

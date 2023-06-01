@@ -1,5 +1,5 @@
-.outer-container{
-    border: 1px solid;
+.editmain{
+    border: none;
     width: 500px;
     height: 500px;
     display: flex;
@@ -13,8 +13,15 @@
     border-radius: 20px;
 }
 
+.inputs-edit{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 
-.buttons-addnote .add-note{
+
+.buttons-edit .btn{
     width: 200px;
     margin-bottom: 20px;
 }

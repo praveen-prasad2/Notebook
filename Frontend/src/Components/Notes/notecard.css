@@ -1,0 +1,27 @@
+.card-outline{
+    border: none;
+    width: 400px;
+    height: 400px;
+    background-color: #feff9c;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+   
+}
+
+.card-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-content{
+    margin-left: 20px;
+}
+
+.card-buttons{
+    display: flex;
+    padding-top: 220px;
+    justify-content:space-around;
+    align-items: center;
+}

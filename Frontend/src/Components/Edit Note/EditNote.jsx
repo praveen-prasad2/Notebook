@@ -4,6 +4,9 @@ import { editNote } from '../../Api/Api'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios';
+import Navbar from "../Navbr/Navbar"
+
+import "./editnote.css"
 
 function EditNote() {
 
@@ -21,24 +24,27 @@ function EditNote() {
         let newData = {
             title: newtitle,
             content: newcontent
-        }
+        };
         const response = await axios.patch(editNote + location.state._id, newData)
     
         navigate('/notes')
     }
   return (
+    <>
+    <Navbar />
             <div className='editmain'>
-                    <h1>Edit your blog</h1>
+                    <h1>EDIT YOUR NOTE</h1>
                 <div className="inputs-edit">
 
-                    <TextField id="standard-basic" label="taskname" variant="standard" value={newtitle} onChange={(e) => { setnewtitle(e.target.value) }} /><br />
-                    <TextField id="standard-basic" label="description" variant="standard" row={5} value={newcontent} onChange={(e) => { setnewcontent(e.target.value) }} /><br /><br />
+                    <TextField id="standard-basic" label="Title" variant="standard" value={newtitle} onChange={(e) => { setnewtitle(e.target.value) }} /><br />
+                    <TextField id="standard-basic" label="Content" variant="standard" row={5} value={newcontent} onChange={(e) => { setnewcontent(e.target.value) }} /><br /><br />
                 </div>
                 <div className="buttons-edit">
                 <Button variant="contained" className='btn' onClick={editData}>Submit</Button>
                 </div>
 
             </div>
+            </>
   )
 }
 

@@ -61,7 +61,7 @@ const getSingleNote = async (req,res)=>{
 // Edit Note
 
 const editNote=async(req,res)=>{
-    let edit=await NoteModel.findOneAndUpdate({_id:req.params.id})
+    let edit=await NoteModel.findOneAndUpdate({_id:req.params.id},req.body)
     try{
         res.json({
             success:true,

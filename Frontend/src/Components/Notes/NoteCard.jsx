@@ -6,7 +6,7 @@ import { deleteNote } from '../../Api/Api';
 import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
-
+import "./notecard.css"
 
 function NoteCard({notemap}) {
 
@@ -22,6 +22,7 @@ function NoteCard({notemap}) {
     }
   return (
     <>
+    
     <div className="card-outline">
         <div className="card-heading">
         <h1>{notemap.title}</h1>
@@ -30,8 +31,8 @@ function NoteCard({notemap}) {
             <p>{notemap.content}</p>
         </div>
         <div className="card-buttons">
-        <DeleteIcon  onClick={del} />
         <EditIcon  onClick={noteEdit}/>
+        <DeleteIcon  onClick={del} />
         </div>
     </div>
     </>

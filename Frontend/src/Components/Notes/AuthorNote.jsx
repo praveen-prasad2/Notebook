@@ -3,6 +3,13 @@ import { UserContext } from '../Context/UserContext'
 import { allNotes } from '../../Api/Api'
 import NoteCard from './NoteCard'
 import axios from 'axios'
+import Navbar from '../Navbr/Navbar'
+import AddIcon from '@mui/icons-material/Add';
+
+
+
+import "./authornote.css"
+import { Link } from 'react-router-dom'
 
 function AuthorNote() {
 
@@ -18,6 +25,7 @@ function AuthorNote() {
     useEffect(() => { fetchAllNotes() }, [])
   return (
     <>
+    <Navbar/>
     <div className='main'>
         <div className='authorcontainer' >
 
@@ -33,6 +41,10 @@ function AuthorNote() {
             })}
         </div>
     </div>
+
+<Link to="/addnote">
+    <button className="add-new-note">Add Note <AddIcon/></button>
+</Link>
 </>
   )
 }
