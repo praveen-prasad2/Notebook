@@ -23,22 +23,21 @@ const createNote=async(req,res)=>{
 
 // View All Notes
 
-const allNotes=async(req,res)=>{
-    try{
-        let allNote=await NoteModel.find(req.body)
+const getAuthorNotes = async (req, res) => {
+    try {
+        let notes = await NoteModel.find({ authorid: req.params.id }).sort()
         res.json({
-            success:true,
-            message:"All notes fetched",
-            allNote
+            success: true,
+            message: "succesfull",
+            notes
         })
-    }catch(error){
+    } catch (error) {
         res.json({
-            success:false,
-            message:"can't fetch all notes"
+            success: false,
+            message: "unsuccesfull"
         })
     }
 }
-
 // Get Single Note
 
 const getSingleNote = async (req,res)=>{
@@ -61,21 +60,21 @@ const getSingleNote = async (req,res)=>{
 
 // Edit Note
 
-// const editNote=async(req,res)=>{
-//     let edit=await NoteModel.findOneAndUpdate({_id:req.params.id})
-//     try{
-//         res.json({
-//             success:true,
-//             message:"edited successfully"
-//         })
-//     }catch(error){
-//         res.json({
-//             success:false,
-//             message:"failed to edit"
-//         })
-//         console.log(error);
-//     }
-// }
+const editNote=async(req,res)=>{
+    let edit=await NoteModel.findOneAndUpdate({_id:req.params.id})
+    try{
+        res.json({
+            success:true,
+            message:"edited successfully"
+        })
+    }catch(error){
+        res.json({
+            success:false,
+            message:"failed to edit"
+        })
+        console.log(error);
+    }
+}
 
 
 // Delete Note
@@ -96,4 +95,4 @@ const deleteNote=async(req,res)=>{
 }
 
 
-module.exports={createNote,allNotes,getSingleNote,deleteNote}
+module.exports={createNote,getAuthorNotes,getSingleNote,deleteNote,editNote}

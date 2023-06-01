@@ -4,6 +4,7 @@ import {signUp} from "../../Api/Api"
 import axios from 'axios'
 
 import "./signup.css"
+import Navbar from '../Navbr/Navbar'
 
 function Signup() {
 
@@ -34,8 +35,11 @@ function Signup() {
     }
   }
   return (
+    <>
+    <Navbar/>
     <div className="outerbox">
         <div className="contents">
+          <h1>Signup</h1>
         <div className="inputs">
  
             <input type="text" name="username" id="username" className='input' placeholder='Username' ref={usernameRef}/><br />
@@ -48,6 +52,7 @@ function Signup() {
         </div>
         </div>
     </div>
+    </>
   )
 }
 

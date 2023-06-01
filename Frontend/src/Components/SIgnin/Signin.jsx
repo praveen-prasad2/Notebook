@@ -3,6 +3,7 @@ import { UserContext } from "../Context/UserContext";
 import { signIn } from "../../Api/Api";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./signin.css"
 
 function Signin() {
   const [email, setEmail] = useState("");
@@ -32,6 +33,7 @@ function Signin() {
   return (
     <>
     <div className="wrapper">
+      <h1>Signin</h1>
       <div className="login-inputs">
         <input
           type="email"
